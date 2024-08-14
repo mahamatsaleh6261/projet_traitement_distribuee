@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<configuration>
+    <!-- Configure the ResourceManager address -->
+    <property>
+        <name>yarn.resourcemanager.hostname</name>
+        <value>resourcemanager</value>
+    </property>
+    
+    <!-- Configure the ResourceManager web app port -->
+    <property>
+        <name>yarn.resourcemanager.webapp.address</name>
+        <value>0.0.0.0:8088</value>
+    </property>
+
+    <!-- Configure the NodeManager local directories -->
+    <property>
+        <name>yarn.nodemanager.local-dir</name>
+        <value>/hadoop-data/nodemanager</value>
+    </property>
+    
+    <!-- Configure the NodeManager log directories -->
+    <property>
+        <name>yarn.nodemanager.log-dirs</name>
+        <value>/hadoop-data/nodemanager/logs</value>
+    </property>
+
+     <!-- Configure the NodeManager aux services -->
+    <property>
+        <name>yarn.nodemanager.aux-services</name>
+        <value>mapreduce_shuffle</value>
+    </property>
+
+    <!-- Configure the mapreduce shuffle class -->
+    <property>
+        <name>yarn.nodemanager.aux-services.mapreduce.shuffle.class</name>
+        <value>org.apache.hadoop.mapred.ShuffleHandler</value>
+    </property>
+</configuration>

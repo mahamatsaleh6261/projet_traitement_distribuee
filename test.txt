@@ -1,0 +1,62 @@
+docker exec -it resourcemanager hadoop jar /usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-*.jar wordcount /hadoop-data/input /hadoop-data/output
+
+docker exec -it 517a9a87e37d find / -name hadoop-mapreduce-examples-*.jar
+
+docker exec -it 517a9a87e37d hadoop jar /opt/hadoop-3.3.1/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.3.1.jar wordcount /hadoop-data/input /hadoop-data/output
+
+==============================================================================
+
+docker exec -it 517a9a87e37d hdfs dfs -ls /hadoop-data //check
+docker exec -it 517a9a87e37d hdfs dfs -mkdir -p /hadoop-data/input //creer
+
+docker exec -it 517a9a87e37d hdfs dfs -ls /hadoop-data/input //verifier lexistance
+
+docker cp /home/midekor/Documents/Coding/examen-apeke-TD-BigData/hadoop-docker-final/example.txt 517a9a87e37d:/example.txt
+docker exec -i 517a9a87e37d hdfs dfs -put /example.txt /hadoop-data/input/
+
+docker exec -i 517a9a87e37d hdfs dfs -ls /hadoop-data/input/
+
+docker exec -i 517a9a87e37d hadoop jar /opt/hadoop-3.3.1/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.3.1.jar wordcount /hadoop-data/input /hadoop-data/output
+
+
+
+docker inspect 517a9a87e37d
+
+
+
+ls -l example.txt
+
+ 
+# Par exemple, pour ajouter un fichier texte d'exemple
+echo "Hello Hadoop" > example.txt
+docker exec -i 517a9a87e37d hdfs dfs -put example.txt /hadoop-data/input/
+#docker exec -i 517a9a87e37d hdfs dfs -put /home/midekor/Documents/Coding/examen-apeke-TD-BigData/hadoop-docker-final/example.txt /hadoop-data/input/
+
+
+================================================================================
+
+
+
+//517a9a87e37d
+
+docker exec -it 5e7b9073ac85 ls -l /hadoop/dfs/secondary
+================================================================
+docker exec -it 15bc1ad0de85 /bin/bash //namenode
+docker exec -it <container_id> /bin/bash
+ls /opt/
+ls /opt/pig-0.17.0/bin
+echo $PATH
+
+
+pig -version
+
+test pi========== //resource manager
+docker cp /home/midekor/Documents/Coding/examen-apeke-TD-BigData/hadoop-docker-final/test.pig 71c430dc9b84:/test.pig
+docker exec -i 71c430dc9b84 pig -x mapreduce /test.pig
+
+//verifier resultats
+docker exec -i 71c430dc9b84 hdfs dfs -ls /hadoop-data/output
+docker exec -i 71c430dc9b84 hdfs dfs -cat /hadoop-data/output/part-*
+================================================== 1.0.5 stable
+connector 
+chmod +x init.sh // for mongo

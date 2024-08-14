@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<configuration>
+    <!-- Configure the NameNode URI -->
+    <property>
+        <name>fs.defaultFS</name>
+        <value>hdfs://namenode:8020</value>
+    </property>
+    
+    <!-- Set the temporary directory for Hadoop -->
+    <property>
+        <name>hadoop.tmp.dir</name>
+        <value>/hadoop-data/tmp</value>
+    </property>
+
+    <!-- MongoDB configuration -->
+    <property>
+        <name>mongo.input.uri</name>
+        <value>mongodb://mongo:27017/testdb.testcollection</value>
+    </property>
+    
+    <property>
+        <name>mongo.output.uri</name>
+        <value>mongodb://mongo:27017/testdb.testcollection</value>
+    </property>
+</configuration>
